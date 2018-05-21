@@ -21,14 +21,23 @@ const styles = {
   },
 };
 
+// const opener = () => {
+//   console.log("hit at navBar");
+//   this.props.toggleOpenDrawer(true);
+// };
+
 const NavBar = props => (
   <div className={props.classes.root}>
+
     <AppBar position="static">
       <Toolbar>
         <IconButton
           className={props.classes.menuButton}
           color="secondary"
           aria-label="Menu"
+          onClick={() => {
+            props.toggleOpenDrawer(true);
+          }}
         >
           <MenuIcon />
         </IconButton>
@@ -45,7 +54,7 @@ const NavBar = props => (
 );
 
 NavBar.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(NavBar);

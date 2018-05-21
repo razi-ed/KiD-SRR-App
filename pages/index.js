@@ -11,6 +11,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 import withRoot from "../src/withRoot";
 import Navbar from "../components/Navbar";
+import Drawer from "../components/Drawer";
 
 const styles = theme => ({
   root: {
@@ -24,16 +25,17 @@ class Index extends Component {
     open: false,
     width: 0,
     height: 0,
+    openDrawer: false,
   };
 
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
-  }
+  // componentDidMount() {
+  //   this.updateWindowDimensions();
+  //   window.addEventListener("resize", this.updateWindowDimensions);
+  // }
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener("resize", this.updateWindowDimensions);
+  // }
 
   handleClose = () => {
     this.setState({
@@ -47,17 +49,29 @@ class Index extends Component {
     });
   };
 
+  toggleOpenDrawer = status => {
+    console.log('hit', status);
+    this.setState({ openDrawer: status });
+  };
+
   updateWindowDimensions = () => {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   };
 
   render() {
     const { classes } = this.props;
-    const { open } = this.state;
+    const { open, openDrawer } = this.state;
 
     return (
       <Fragment>
-        <Navbar title="Kerala Info Directory" />
+        <Navbar
+          title="Kerala Info Directory"
+          toggleOpenDrawer={this.toggleOpenDrawer}
+        />
+        <Drawer
+          openDrawer={openDrawer}
+          toggleOpenDrawer={this.toggleOpenDrawer}
+        />
         <div className={classes.root}>
           <Dialog open={open} onClose={this.handleClose}>
             <DialogTitle>KiD is loading...</DialogTitle>
