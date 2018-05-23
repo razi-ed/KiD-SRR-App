@@ -8,6 +8,7 @@ import {
   InputLabel
 } from '@material-ui/core';
 import isUndefined from 'lodash/isUndefined';
+import map from 'lodash/map';
 
 export default class Select extends React.Component {
   state = {
@@ -30,7 +31,7 @@ export default class Select extends React.Component {
       >
         <InputLabel htmlFor={this.props.id}>{this.props.label}</InputLabel>
         <Selection
-          value={_.isUndefined(this.props.value) ? this.state.value : this.props.value}
+          value={isUndefined(this.props.value) ? this.state.value : this.props.value}
           input={(
             <Input
               name={this.props.name}
@@ -39,7 +40,7 @@ export default class Select extends React.Component {
           )}
           onChange={this._onChange}
         >
-          {_.map(
+          {map(
             this.props.options,
             (option) => (
               <MenuItem

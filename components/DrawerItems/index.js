@@ -10,6 +10,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ReportIcon from "@material-ui/icons/Report";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import Link from "next/link";
 
 export const mailFolderListItems = (
   <div>
@@ -19,12 +20,14 @@ export const mailFolderListItems = (
       </ListItemIcon> */}
       <ListItemText primary="News" />
     </ListItem>
+    <Link href="bloodDonors">
     <ListItem button>
       {/* <ListItemIcon>
         <BloodIcon />
       </ListItemIcon> */}
-      <ListItemText primary="Blood" />
+      <ListItemText primary="Blood Bank" />
     </ListItem>
+    </Link>
     <ListItem button>
       {/* <ListItemIcon>
         <SendIcon />
