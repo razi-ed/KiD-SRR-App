@@ -6,7 +6,7 @@ import {
   FormHelperText,
   Input,
   InputLabel
-} from 'material-ui';
+} from '@material-ui/core';
 import isUndefined from 'lodash/isUndefined';
 
 export default class Select extends React.Component {

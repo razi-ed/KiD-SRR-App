@@ -13,17 +13,17 @@ export default class BloodDonors extends Component {
     alert("calling " + e.mobile);
   }
   
-  _state = () => (
-    <Select
-      id={}
-      name={}
-      label={}
-      value={}
-      defaultValue={}
-      options={}
-      onChange={}
-    />
-  )
+  // _state = () => (
+  //   <Select
+  //     id={}
+  //     name={}
+  //     label={}
+  //     value={}
+  //     defaultValue={}
+  //     options={}
+  //     onChange={}
+  //   />
+  // )
 
   _list = () => (
     <DonorsList
