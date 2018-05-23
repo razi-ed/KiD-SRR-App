@@ -113,7 +113,7 @@ export default class BloodDonors extends Component {
             justifyContent: "flex-end",
             marginTop: ".6rem"
           }}>
-            <Button>
+            <Button variant="raised">
               <SearchIcon />
               Search
             </Button>

@@ -50,7 +50,7 @@ class Index extends Component {
   };
 
   toggleOpenDrawer = status => {
-    console.log('hit', status);
+    // console.log('hit', status);
     this.setState({ openDrawer: status });
   };
 
