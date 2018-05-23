@@ -1,0 +1,28 @@
+{
+  "name": "App",
+  "version": "0.0.1",
+  "main": "server.js",
+  "repository": "https://github.com/razi-rasheed/KiD-SRR-App.git",
+  "author": "razi.94@outlook.com",
+  "license": "ISC",
+  "private": false,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
+    "express": "latest",
+    "jss": "latest",
+    "lodash": "^4.17.10",
+    "next": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-jss": "latest"
+  }
+}
