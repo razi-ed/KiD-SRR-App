@@ -1,11 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import IconButton from "@material-ui/core/IconButton"
+import Button from "@material-ui/core/Button"
 import SearchIcon from "@material-ui/icons/Search"
 import DonorsList from '../components/DataList';
 import Select from '../components/Select'
 
 const data = [
-  { name: "NameOfDonor", address: "Locality", bloodGroup: "O+", mobile: "Test123123" }
+  { name: "Name", address: "Locality", bloodGroup: "O+", mobile: "Test123123" },
+  { name: "Name1", address: "Locality1", bloodGroup: "A+", mobile: "Test123123" },
+  { name: "Name2", address: "Locality2", bloodGroup: "B+", mobile: "Test123123" },
+  { name: "Name3", address: "Locality3", bloodGroup: "O-", mobile: "Test123123" },
+  { name: "Name4", address: "Locality4", bloodGroup: "O-", mobile: "Test123123" },
+  { name: "Name5", address: "Locality5", bloodGroup: "A-", mobile: "Test123123" },
 ]
 
 export default class BloodDonors extends Component {
@@ -85,29 +90,33 @@ export default class BloodDonors extends Component {
       }}>
         <div style={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
           justifyContent: "space-around",
-          marginBottom: "1.6rem"
         }}>
           <div style={{
-            width: "10rem"
+            minWidth: "10rem"
           }}>
             {this._state()}
           </div>
           <div style={{
-            width: "10rem"
+            minWidth: "10rem"
           }}>
             {this._city()}
           </div>
           <div style={{
-            width: "10rem"
+            minWidth: "10rem"
           }}>
             {this._locality()}
           </div>
-          <div>
-            <IconButton>
+          <div style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginTop: ".6rem"
+          }}>
+            <Button>
               <SearchIcon />
-            </IconButton>
+              Search
+            </Button>
           </div>
         </div>
         <div>

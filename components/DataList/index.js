@@ -6,7 +6,10 @@ const DataList = props => {
   let { data, onCall } = props;
   return data.map((e, i) => {
     return (
-      <Card key={i}>
+      <Card key={i}
+      style={{
+        marginTop: "0.6rem"
+      }}>
         <div
           style={{
             display: "flex",
