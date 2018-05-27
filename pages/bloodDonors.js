@@ -3,6 +3,8 @@ import Button from "@material-ui/core/Button"
 import SearchIcon from "@material-ui/icons/Search"
 import DonorsList from '../components/DataList';
 import Select from '../components/Select'
+import AdderForm from '../components/BloodDonorAdderDialog'
+import withRoot from '../src/withRoot'
 
 const data = [
   { name: "Name", address: "Locality", bloodGroup: "O+", mobile: "Test123123" },
@@ -13,11 +15,26 @@ const data = [
   { name: "Name5", address: "Locality5", bloodGroup: "A-", mobile: "Test123123" },
 ]
 
-export default class BloodDonors extends Component {
+class BloodDonors extends Component {
   state={
+    country:'',
     _state: '',
     city: '',
-    locality: ''
+    locality: '',
+    bloodGroup: '',
+    openAdderForm: false
+  }
+
+  _openAdderForm = () => {
+    this.setState({
+      openAdderForm: true
+    })
+  }
+  
+  _closeAdderForm = () => {
+    this.setState({
+      openAdderForm: false
+    })
   }
   
   _onCall = e => {
@@ -29,6 +46,21 @@ export default class BloodDonors extends Component {
       [name]: e
     });
   }
+
+  _country = () => (
+    <Select
+      id="selectCountry"
+      name="country"
+      label="Select Country"
+      value={this.state.country}
+      fullWidth
+      // defaultValue={}
+      // options={}
+      onChange={(e) => {
+        this._onSelect(e, "country");
+      }}
+    />
+  )
 
   _state = () => (
     <Select
@@ -75,10 +107,32 @@ export default class BloodDonors extends Component {
     />
   )
 
+  _bloodGroup = () => (
+    <Select
+      id="selectBloodGroup"
+      name="bloodGrouop"
+      label="Select BloodGroup"
+      value={this.state.bloodGroup}
+      fullWidth
+      // defaultValue={}
+      // options={}
+      onChange={(e)=>{
+        this._onSelect(e,"locality");
+      }}
+    />
+  )
+
   _list = () => (
     <DonorsList
       onCall={this._onCall}
       data={data}
+    />
+  )
+
+  _AdderForm = () => (
+    <AdderForm
+      openForm={this.state.openAdderForm}
+      closeForm={this._closeAdderForm}
     />
   )
 
@@ -96,6 +150,11 @@ export default class BloodDonors extends Component {
           <div style={{
             minWidth: "10rem"
           }}>
+            {this._country()}
+          </div>
+          <div style={{
+            minWidth: "10rem"
+          }}>
             {this._state()}
           </div>
           <div style={{
@@ -109,10 +168,22 @@ export default class BloodDonors extends Component {
             {this._locality()}
           </div>
           <div style={{
+            minWidth: "10rem"
+          }}>
+            {this._bloodGroup()}
+          </div>
+          <div style={{
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             marginTop: ".6rem"
           }}>
+            <Button
+              variant="raised"
+              color='primary'
+              onClick={this._openAdderForm}
+            >
+              Enlist as Donor
+            </Button>
             <Button variant="raised">
               <SearchIcon />
               Search
@@ -121,8 +192,11 @@ export default class BloodDonors extends Component {
         </div>
         <div>
           {this._list()}
+          {this._AdderForm()}
         </div>
       </div>
     )
   }
 }
+
+export default withRoot(BloodDonors);
