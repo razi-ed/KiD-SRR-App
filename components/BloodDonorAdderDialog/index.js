@@ -264,11 +264,11 @@ class BloodDonorAdderDialog extends React.Component {
               </div>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Disagree
+            <Button onClick={this.handleClose} color="accent">
+              close
             </Button>
-            <Button onClick={this.handleClose} color="primary" autoFocus>
-              Agree
+            <Button onClick={this.handleClose} color="primary">
+              Submit
             </Button>
           </DialogActions>
         </Dialog>
