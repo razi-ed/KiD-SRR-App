@@ -1,8 +1,10 @@
 # KiD-SRR-App
 KiD-SRR-App
 
-`yarn`
+use *YARN*
 
-`yarn dev`
+install packages: `yarn`
+
+on dev: `yarn dev`
 
 build and run: `$PORT=3000 yarn start`
